@@ -281,7 +281,7 @@ export default function Home() {
               <FadeIn key={i} delay={i * 120}>
                 <div className="flex items-start gap-6">
                   <div className="w-24 h-24 md:w-28 md:h-28 flex-shrink-0 overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
-                    <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
+                    <img src={member.img} alt={`${member.name}, ${member.title} of Xnergy United Network`} width="112" height="112" loading="lazy" className="w-full h-full object-cover" />
                   </div>
                   <div className="pt-2">
                     <h3 className="font-serif text-xl md:text-[22px] text-ink mb-1 leading-[1.2]">{member.name}</h3>
