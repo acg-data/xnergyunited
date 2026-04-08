@@ -62,7 +62,7 @@ export default function Home() {
           ))}
         </div>
         <button className="text-[10px] font-medium tracking-[0.12em] uppercase text-ink bg-transparent border border-rule px-5 py-2 hover:border-ink transition-colors cursor-pointer">
-          Investor Enquiries
+          Inquiries
         </button>
       </nav>
 
