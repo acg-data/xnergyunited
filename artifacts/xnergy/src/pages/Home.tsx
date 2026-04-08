@@ -55,7 +55,7 @@ export default function Home() {
           <span className="text-[9px] font-normal tracking-[0.18em] text-muted-ink uppercase leading-none mt-1">United Network</span>
         </a>
         <div className="hidden md:flex gap-9">
-          {["Philosophy", "Presence", "Divisions", "Thesis"].map((link) => (
+          {["Philosophy", "Presence", "Divisions", "Outlook"].map((link) => (
             <a key={link} href={`#${link.toLowerCase()}`} className="text-[11px] font-normal tracking-[0.1em] text-muted-ink hover:text-ink uppercase transition-colors">
               {link}
             </a>
@@ -219,15 +219,15 @@ export default function Home() {
           ))}
         </section>
 
-        {/* THESIS */}
-        <section id="thesis" className="py-20 md:py-24">
+        {/* OUTLOOK */}
+        <section id="outlook" className="py-20 md:py-24">
           <div className="grid md:grid-cols-[200px_1fr] gap-8 md:gap-16 mb-14">
             <FadeIn>
-              <div className="text-[10px] font-normal tracking-[0.18em] text-gold uppercase md:pt-1.5">Investment Thesis</div>
+              <div className="text-[10px] font-normal tracking-[0.18em] text-gold uppercase md:pt-1.5">Outlook</div>
             </FadeIn>
             <FadeIn delay={100}>
               <h2 className="font-serif text-2xl md:text-[30px] font-normal text-ink leading-[1.2] tracking-[-0.005em]">
-                Three reasons the timing is consequential.
+                Three dynamics shaping the opportunity ahead.
               </h2>
             </FadeIn>
           </div>
@@ -236,18 +236,18 @@ export default function Home() {
             {[
               {
                 num: "I",
-                title: "The platform advantage that cannot be replicated",
-                desc: "Rare earth sourcing feeds fabrication. Fabrication supports energy builds. Technology optimises operations. Security protects the whole. One client relationship activates multiple divisions — a structural advantage no pure-play competitor can offer."
+                title: "An integrated platform others cannot easily build",
+                desc: "Rare earth sourcing feeds fabrication. Fabrication supports energy builds. Technology optimises operations. Security protects the whole. One relationship activates multiple divisions — a structural depth that single-sector operators simply do not offer."
               },
               {
                 num: "II",
-                title: "Capital is flowing precisely here",
-                desc: "Federal infrastructure mandates, defence modernisation budgets, and energy transition spending are at historic levels. Xnergy is positioned at the intersection of each — not where capital has been, but where it is going."
+                title: "Aligned with where global spending is headed",
+                desc: "Federal infrastructure mandates, defence modernisation budgets, and energy transition programmes are at historic levels. Xnergy operates at the intersection of each — positioned not where activity has been, but where it is going."
               },
               {
                 num: "III",
-                title: "Hard assets with technology-driven upside",
-                desc: "Steel, energy infrastructure, and physical security provide asset-backed capital preservation. AI, cybersecurity, and communications layer in the margin expansion story. Investors need not choose between the two."
+                title: "Physical foundations with a technology edge",
+                desc: "Steel, energy infrastructure, and physical security provide tangible, enduring value. AI, cybersecurity, and communications add operational efficiency and long-term growth potential. The combination is rare."
               }
             ].map((cell, i) => (
               <FadeIn key={i} delay={i * 100} className="bg-bg p-8 md:px-8 md:py-10 max-md:border max-md:border-rule">
@@ -267,12 +267,12 @@ export default function Home() {
                 Enquiries are handled with discretion.
               </h2>
               <p className="text-[13px] text-mid leading-[1.75] max-w-[420px] font-light">
-                Xnergy engages selectively with qualified investors and institutional counterparties. To request materials or arrange a private conversation, please reach out through the appropriate channel.
+                Xnergy engages selectively with qualified parties. To learn more or arrange a private conversation, please reach out through the appropriate channel.
               </p>
             </FadeIn>
             <FadeIn delay={100} className="flex flex-col gap-2.5 md:items-end">
               <button className="text-[10px] font-medium tracking-[0.14em] uppercase text-bg bg-ink border border-ink px-7 py-3 hover:opacity-80 transition-opacity cursor-pointer w-full md:w-auto text-center">
-                Request investor materials
+                Request materials
               </button>
               <button className="text-[10px] font-normal tracking-[0.14em] uppercase text-muted-ink bg-transparent border border-rule px-7 py-3 hover:border-muted-ink hover:text-mid transition-colors cursor-pointer w-full md:w-auto text-center">
                 Arrange a conversation
