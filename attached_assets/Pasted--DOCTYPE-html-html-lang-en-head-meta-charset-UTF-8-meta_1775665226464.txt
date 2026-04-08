@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xnergy United Network</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #141210;
+  --mid: #3D3A36;
+  --muted: #7A7570;
+  --light: #ADA9A3;
+  --rule: #D8D4CE;
+  --bg: #F9F7F4;
+  --parchment: #F9F7F4;
+  --gold: #8B6F3E;
+  --gold-lt: #C4A46B;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: linear-gradient(160deg, #F9F7F4 0%, #F0EDE8 100%); min-height: 100vh;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  font-weight: 300;
+}
+
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 60px; }
+
+/* ── NAV ── */
+nav {
+  height: 64px; display: flex; align-items: center;
+  justify-content: space-between; padding: 0 60px;
+  border-bottom: 1px solid var(--rule);
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(249,247,244,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.nav-logo {
+  display: flex; flex-direction: column; gap: 1px;
+  text-decoration: none;
+}
+.nav-logo-main {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 18px; font-weight: 500; letter-spacing: 0.12em;
+  color: var(--ink); text-transform: uppercase;
+}
+.nav-logo-sub {
+  font-size: 9px; font-weight: 400; letter-spacing: 0.18em;
+  color: var(--muted); text-transform: uppercase;
+}
+.nav-links { display: flex; gap: 36px; }
+.nav-links a {
+  font-size: 11px; font-weight: 400; letter-spacing: 0.1em;
+  color: var(--muted); text-decoration: none;
+  text-transform: uppercase; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--ink);
+  background: none; border: 1px solid var(--rule);
+  padding: 9px 20px; cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.nav-cta:hover { border-color: var(--ink); }
+
+/* ── HERO ── */
+.hero {
+  padding: 108px 0 96px;
+  border-bottom: 1px solid var(--rule);
+}
+.hero-kicker {
+  font-size: 10px; font-weight: 400; letter-spacing: 0.2em;
+  color: var(--gold); text-transform: uppercase;
+  margin-bottom: 36px; display: flex; align-items: center; gap: 14px;
+}
+.hero-kicker::before {
+  content: ''; display: block;
+  width: 24px; height: 1px; background: var(--gold-lt);
+}
+.hero h1 {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 62px; line-height: 1.04; font-weight: 400;
+  letter-spacing: -0.01em; color: var(--ink);
+  margin-bottom: 36px; max-width: 760px;
+}
+.hero h1 em { font-style: italic; color: var(--mid); }
+.hero-body {
+  font-size: 15px; line-height: 1.8; color: var(--mid);
+  max-width: 560px; margin-bottom: 56px; font-weight: 300;
+}
+.hero-actions { display: flex; align-items: center; gap: 20px; }
+.btn-primary {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--bg);
+  background: var(--ink); border: 1px solid var(--ink);
+  padding: 13px 28px; cursor: pointer;
+  transition: opacity 0.2s;
+}
+.btn-primary:hover { opacity: 0.8; }
+.btn-secondary {
+  font-size: 10px; font-weight: 400; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--muted);
+  background: none; border: 1px solid var(--rule);
+  padding: 13px 28px; cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-secondary:hover { border-color: var(--muted); color: var(--mid); }
+
+/* ── STRIP ── */
+.strip {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-bottom: 1px solid var(--rule);
+}
+.strip-item {
+  padding: 36px 60px;
+  border-right: 1px solid var(--rule);
+}
+.strip-item:last-child { border-right: none; }
+.strip-num {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 38px; font-weight: 400; color: var(--ink);
+  letter-spacing: -0.02em; margin-bottom: 6px;
+}
+.strip-label {
+  font-size: 10px; font-weight: 400; letter-spacing: 0.1em;
+  color: var(--muted); text-transform: uppercase; line-height: 1.5;
+}
+
+/* ── PHILOSOPHY ── */
+.philosophy {
+  padding: 88px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.phi-grid { display: grid; grid-template-columns: 200px 1fr; gap: 64px; align-items: start; }
+.phi-label {
+  font-size: 10px; font-weight: 400; letter-spacing: 0.18em;
+  color: var(--gold); text-transform: uppercase; padding-top: 6px;
+}
+.phi-body {}
+.phi-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 30px; font-weight: 400; line-height: 1.2;
+  color: var(--ink); margin-bottom: 28px; letter-spacing: -0.005em;
+}
+.phi-title em { font-style: italic; color: var(--mid); }
+.phi-text {
+  font-size: 14px; line-height: 1.85; color: var(--mid);
+  font-weight: 300; max-width: 580px;
+}
+.phi-text + .phi-text { margin-top: 18px; }
+.phi-pullquote {
+  margin: 36px 0; padding: 24px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+}
+.phi-pullquote p {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 20px; font-style: italic; color: var(--mid);
+  line-height: 1.5; letter-spacing: 0.005em;
+}
+
+/* ── GLOBE SECTION ── */
+.global-section {
+  background: transparent;
+  border-bottom: 1px solid var(--rule);
+}
+.global-inner {
+  display: grid; grid-template-columns: 1fr 360px;
+  gap: 80px; align-items: center; padding: 88px 0;
+}
+.global-label-parch {
+  font-size: 10px; font-weight: 400; letter-spacing: 0.18em;
+  color: var(--gold); text-transform: uppercase; margin-bottom: 20px;
+}
+.global-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 28px; font-weight: 400; color: var(--ink);
+  line-height: 1.25; letter-spacing: -0.005em; margin-bottom: 24px;
+}
+.global-body { font-size: 13px; color: var(--mid); line-height: 1.8; font-weight: 300; margin-bottom: 36px; }
+.region-list { display: flex; flex-direction: column; gap: 14px; }
+.region-row { display: flex; align-items: baseline; gap: 14px; }
+.region-rule { width: 16px; height: 1px; background: var(--gold-lt); flex-shrink: 0; margin-top: 8px; }
+.region-name { font-size: 12px; font-weight: 500; color: var(--ink); min-width: 120px; letter-spacing: 0.02em; }
+.region-desc { font-size: 12px; color: var(--muted); font-weight: 300; }
+.globe-wrap { display: flex; align-items: center; justify-content: center; }
+
+/* ── DIVISIONS ── */
+.divisions-section { padding: 0; }
+.div-header {
+  display: grid; grid-template-columns: 200px 1fr;
+  gap: 64px; padding: 80px 0 56px;
+  border-bottom: 1px solid var(--rule);
+}
+.div-label {
+  font-size: 10px; font-weight: 400; letter-spacing: 0.18em;
+  color: var(--gold); text-transform: uppercase; padding-top: 6px;
+}
+.div-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 30px; font-weight: 400; color: var(--ink);
+  line-height: 1.2; letter-spacing: -0.005em;
+}
+.div-row {
+  display: grid; grid-template-columns: 200px 1fr;
+  gap: 64px; padding: 40px 0; border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+.div-row:last-child { border-bottom: none; }
+.div-name {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--mid); padding-top: 3px;
+}
+.div-content {}
+.div-desc { font-size: 13px; color: var(--mid); line-height: 1.8; font-weight: 300; margin-bottom: 20px; }
+.div-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.div-tag {
+  font-size: 10px; font-weight: 400; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--muted);
+  border: 1px solid var(--rule); padding: 5px 12px;
+  background: transparent;
+}
+
+/* ── THESIS ── */
+
+.thesis-section { background: transparent; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.thesis-inner { padding: 88px 0; }
+.thesis-hdr { margin-bottom: 56px; }
+.thesis-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.thesis-cell { background: transparent; padding: 40px 32px; }
+.thesis-n {
+  font-size: 10px; font-weight: 400; letter-spacing: 0.15em;
+  color: var(--gold); margin-bottom: 20px; display: block;
+}
+.thesis-t { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; color: var(--ink); margin-bottom: 14px; line-height: 1.3; }
+.thesis-b { font-size: 13px; color: var(--mid); line-height: 1.8; font-weight: 300; }
+
+/* ── CTA ── */
+.cta-section { padding: 88px 0; border-top: 1px solid var(--rule); }
+.cta-inner { display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
+.cta-h {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 28px; font-weight: 400; color: var(--ink);
+  letter-spacing: -0.005em; margin-bottom: 12px;
+}
+.cta-p { font-size: 13px; color: var(--mid); line-height: 1.75; max-width: 420px; font-weight: 300; }
+.cta-btns { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+
+/* ── FOOTER ── */
+footer { border-top: 1px solid var(--rule); padding: 36px 0; }
+.footer-inner { display: flex; align-items: flex-start; justify-content: space-between; }
+.footer-logo-main {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 15px; font-weight: 500; letter-spacing: 0.14em;
+  color: var(--ink); text-transform: uppercase; margin-bottom: 4px;
+}
+.footer-logo-sub { font-size: 9px; letter-spacing: 0.16em; color: var(--light); text-transform: uppercase; }
+.footer-note { font-size: 11px; color: var(--light); max-width: 420px; line-height: 1.65; text-align: right; font-weight: 300; }
+
+@media (max-width: 800px) {
+  .wrap { padding: 0 28px; }
+  nav { padding: 0 28px; }
+  .nav-links { display: none; }
+  .hero { padding: 72px 0 60px; }
+  .hero h1 { font-size: 40px; }
+  .strip { grid-template-columns: repeat(2,1fr); }
+  .strip-item { padding: 28px; }
+  .phi-grid, .global-inner, .div-header, .div-row, .thesis-grid { grid-template-columns: 1fr; gap: 24px; }
+  .globe-wrap { display: none; }
+  .thesis-grid { background: none; border: none; }
+  .thesis-cell { border: 1px solid var(--rule); }
+  .cta-inner { grid-template-columns: 1fr; }
+  .cta-btns { align-items: flex-start; }
+  .footer-inner { flex-direction: column; gap: 24px; }
+  .footer-note { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-main">Xnergy</div>
+    <div class="nav-logo-sub">United Network</div>
+  </a>
+  <div class="nav-links">
+    <a href="#philosophy">Philosophy</a>
+    <a href="#presence">Presence</a>
+    <a href="#divisions">Divisions</a>
+    <a href="#thesis">Thesis</a>
+  </div>
+  <button class="nav-cta">Investor Enquiries</button>
+</nav>
+
+<!-- HERO -->
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-kicker">Xnergy United Network</div>
+    <h1>An integrated industrial ecosystem. <em>Built to endure.</em></h1>
+    <p class="hero-body">Xnergy is a strategically structured industrial ecosystem designed to build, power, protect, and technologically advance critical infrastructure across multiple sectors of the global economy. Not a holding company. An integrated platform — where each division strengthens the whole.</p>
+    <div class="hero-actions">
+      <button class="btn-primary">Request materials</button>
+      <button class="btn-secondary">Our divisions</button>
+    </div>
+  </div>
+</div>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-item"><div class="strip-num">$2.4B</div><div class="strip-label">Addressable pipeline</div></div>
+  <div class="strip-item"><div class="strip-num">340%</div><div class="strip-label">Revenue growth, 3 years</div></div>
+  <div class="strip-item"><div class="strip-num">38+</div><div class="strip-label">Active contracts</div></div>
+  <div class="strip-item"><div class="strip-num">12</div><div class="strip-label">Countries of operation</div></div>
+</div>
+
+<!-- PHILOSOPHY -->
+<div class="wrap">
+  <div class="philosophy" id="philosophy">
+    <div class="phi-grid">
+      <div class="phi-label">Philosophy</div>
+      <div class="phi-body">
+        <div class="phi-title">The convergence of industries <em>creates what no single company can.</em></div>
+        <p class="phi-text">The name Xnergy reflects the central philosophy behind the organisation. The "X" represents the intersection of industries, expertise, and capabilities — where the convergence of multiple sectors creates a multiplier effect far greater than the sum of individual parts.</p>
+        <div class="phi-pullquote">
+          <p>"The next era of industrial progress will not be driven by isolated companies operating independently, but by integrated networks of specialised capabilities working in coordinated alignment."</p>
+        </div>
+        <p class="phi-text">Within the Xnergy ecosystem, industries that traditionally operate in isolation are intentionally connected to create operational leverage, efficiency, and strategic advantage. Where a single company provides one service, Xnergy provides a coordinated chain of capability — infrastructure, energy, technology, and security working as one.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GLOBAL PRESENCE -->
+<div class="global-section" id="presence">
+  <div class="wrap">
+    <div class="global-inner">
+      <div>
+        <div class="global-label">Global Presence</div>
+        <div class="global-title">Operating across four continents, with a growing federal presence.</div>
+        <p class="global-body">Xnergy's capabilities are deployed where critical infrastructure is being built, secured, and modernised — from North American energy corridors to Southeast Asian logistics networks and beyond.</p>
+        <div class="region-list">
+          <div class="region-row"><div class="region-rule"></div><span class="region-name">North America</span><span class="region-desc">Federal contracts, energy infrastructure</span></div>
+          <div class="region-row"><div class="region-rule"></div><span class="region-name">Middle East</span><span class="region-desc">Construction, security, rare earth logistics</span></div>
+          <div class="region-row"><div class="region-rule"></div><span class="region-name">Southeast Asia</span><span class="region-desc">Supply chain, satellite communications</span></div>
+          <div class="region-row"><div class="region-rule"></div><span class="region-name">Europe</span><span class="region-desc">Cybersecurity, advanced surveillance</span></div>
+        </div>
+      </div>
+      <div class="globe-wrap">
+        <svg width="320" height="320" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="170" cy="170" r="155" stroke="#D8D4CE" stroke-width="1"/>
+          <ellipse cx="170" cy="170" rx="155" ry="50" stroke="#D8D4CE" stroke-width="0.7"/>
+          <ellipse cx="170" cy="170" rx="155" ry="105" stroke="#D8D4CE" stroke-width="0.7"/>
+          <line x1="170" y1="15" x2="170" y2="325" stroke="#D8D4CE" stroke-width="0.7"/>
+          <line x1="15" y1="170" x2="325" y2="170" stroke="#D8D4CE" stroke-width="0.7"/>
+          <path d="M100 22 Q170 170 100 318" stroke="#D8D4CE" stroke-width="0.7" fill="none"/>
+          <path d="M240 22 Q170 170 240 318" stroke="#D8D4CE" stroke-width="0.7" fill="none"/>
+          <!-- Continents -->
+          <path d="M60 100 L95 88 L118 95 L125 115 L112 138 L95 145 L75 140 L60 125 Z" fill="#C8C3BB"/>
+          <path d="M105 175 L130 168 L140 185 L138 215 L122 228 L108 218 L100 195 Z" fill="#C8C3BB"/>
+          <path d="M165 90 L195 85 L205 100 L198 115 L178 118 L162 108 Z" fill="#C8C3BB"/>
+          <path d="M175 130 L205 125 L215 148 L210 178 L195 195 L178 192 L168 170 L165 145 Z" fill="#C8C3BB"/>
+          <path d="M210 82 L270 78 L295 95 L298 125 L280 145 L255 152 L228 145 L212 130 L205 108 Z" fill="#C8C3BB"/>
+          <path d="M255 195 L285 190 L295 205 L290 222 L268 228 L252 218 Z" fill="#C8C3BB"/>
+          <!-- Centre -->
+          <circle cx="170" cy="170" r="3.5" fill="#8B6F3E"/>
+          <!-- Connection lines — gold -->
+          <line x1="170" y1="170" x2="88" y2="116" stroke="#C4A46B" stroke-width="0.8" stroke-dasharray="4 3"/>
+          <circle cx="88" cy="116" r="4.5" fill="#8B6F3E"/>
+          <circle cx="88" cy="116" r="10" fill="#8B6F3E" opacity="0.12"/>
+          <line x1="170" y1="170" x2="228" y2="138" stroke="#C4A46B" stroke-width="0.8" stroke-dasharray="4 3"/>
+          <circle cx="228" cy="138" r="4.5" fill="#8B6F3E"/>
+          <circle cx="228" cy="138" r="10" fill="#8B6F3E" opacity="0.12"/>
+          <line x1="170" y1="170" x2="272" y2="175" stroke="#C4A46B" stroke-width="0.8" stroke-dasharray="4 3"/>
+          <circle cx="272" cy="175" r="4.5" fill="#8B6F3E"/>
+          <circle cx="272" cy="175" r="10" fill="#8B6F3E" opacity="0.12"/>
+          <line x1="170" y1="170" x2="182" y2="100" stroke="#C4A46B" stroke-width="0.8" stroke-dasharray="4 3"/>
+          <circle cx="182" cy="100" r="4.5" fill="#8B6F3E"/>
+          <circle cx="182" cy="100" r="10" fill="#8B6F3E" opacity="0.12"/>
+          <circle cx="170" cy="170" r="155" stroke="#C4A46B" stroke-width="0.4" opacity="0.3"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIVISIONS -->
+<div class="wrap">
+  <div class="divisions-section" id="divisions">
+    <div class="div-header">
+      <div class="div-label">Divisions</div>
+      <div class="div-title">Four pillars of modern industrial development. <em>One integrated network.</em></div>
+    </div>
+
+    <div class="div-row">
+      <div class="div-name">Xnergy Infrastructure</div>
+      <div class="div-content">
+        <p class="div-desc">The physical foundation of the ecosystem. Xnergy Infrastructure develops the built environment upon which all other divisions operate — from structural fabrication to large-scale engineering and the sourcing of critical materials.</p>
+        <div class="div-tags">
+          <span class="div-tag">Structural Steel Fabrication</span>
+          <span class="div-tag">Logistics</span>
+          <span class="div-tag">Engineering & Construction</span>
+          <span class="div-tag">Rare Earth Elements</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="div-row">
+      <div class="div-name">Xnergy Power</div>
+      <div class="div-content">
+        <p class="div-desc">The energy backbone of the platform. Xnergy Power focuses on next-generation energy generation and storage — developing the systems that power industrial operations, communities, and the broader economy with resilience and efficiency.</p>
+        <div class="div-tags">
+          <span class="div-tag">Small Modular Reactors</span>
+          <span class="div-tag">Enhanced Geothermal</span>
+          <span class="div-tag">Advanced Solar Systems</span>
+          <span class="div-tag">Long-duration Energy Storage</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="div-row">
+      <div class="div-name">Xnergy Technology</div>
+      <div class="div-content">
+        <p class="div-desc">The intelligence layer of the ecosystem. Xnergy Technology enhances the capability, efficiency, and communication of industrial systems through artificial intelligence, advanced surveillance, and satellite-grade communications infrastructure.</p>
+        <div class="div-tags">
+          <span class="div-tag">AI & Machine Learning</span>
+          <span class="div-tag">Cybersecurity Architecture</span>
+          <span class="div-tag">Facial Recognition</span>
+          <span class="div-tag">Satellite & Terrestrial Communication</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="div-row">
+      <div class="div-name">Xnergy Security</div>
+      <div class="div-content">
+        <p class="div-desc">The protective layer of the platform. Xnergy Security safeguards the operational environment — from critical assets and mobile operations to large-scale infrastructure — ensuring the continuity and integrity of the broader ecosystem.</p>
+        <div class="div-tags">
+          <span class="div-tag">Mobile Asset Protection</span>
+          <span class="div-tag">Site Protection</span>
+          <span class="div-tag">Advanced Surveillance</span>
+          <span class="div-tag">Infrastructure Protection</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- THESIS -->
+<div class="thesis-section">
+  <div class="wrap">
+    <div class="thesis-inner" id="thesis">
+      <div class="thesis-hdr">
+        <div class="phi-grid">
+          <div class="phi-label">Investment Thesis</div>
+          <div class="div-title">Three reasons the timing is consequential.</div>
+        </div>
+      </div>
+      <div class="thesis-grid">
+        <div class="thesis-cell">
+          <span class="thesis-n">I</span>
+          <div class="thesis-t">The platform advantage that cannot be replicated</div>
+          <p class="thesis-b">Rare earth sourcing feeds fabrication. Fabrication supports energy builds. Technology optimises operations. Security protects the whole. One client relationship activates multiple divisions — a structural advantage no pure-play competitor can offer.</p>
+        </div>
+        <div class="thesis-cell">
+          <span class="thesis-n">II</span>
+          <div class="thesis-t">Capital is flowing precisely here</div>
+          <p class="thesis-b">Federal infrastructure mandates, defence modernisation budgets, and energy transition spending are at historic levels. Xnergy is positioned at the intersection of each — not where capital has been, but where it is going.</p>
+        </div>
+        <div class="thesis-cell">
+          <span class="thesis-n">III</span>
+          <div class="thesis-t">Hard assets with technology-driven upside</div>
+          <p class="thesis-b">Steel, energy infrastructure, and physical security provide asset-backed capital preservation. AI, cybersecurity, and communications layer in the margin expansion story. Investors need not choose between the two.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="wrap">
+  <div class="cta-section">
+    <div class="cta-inner">
+      <div>
+        <div class="cta-h">Enquiries are handled with discretion.</div>
+        <p class="cta-p">Xnergy engages selectively with qualified investors and institutional counterparties. To request materials or arrange a private conversation, please reach out through the appropriate channel.</p>
+      </div>
+      <div class="cta-btns">
+        <button class="btn-primary">Request investor materials</button>
+        <button class="btn-secondary">Arrange a conversation</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="border-top: 1px solid var(--rule);">
+  <div class="wrap">
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo-main">Xnergy United Network</div>
+          <div class="footer-logo-sub">Confidential · Not for public distribution</div>
+        </div>
+        <p class="footer-note">This page is intended solely for the use of qualified institutional investors and accredited parties. The information contained herein is confidential and may not be reproduced or distributed without prior written consent.</p>
+      </div>
+    </footer>
+  </div>
+</div>
+
+</body>
+</html>
