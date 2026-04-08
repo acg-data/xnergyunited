@@ -112,7 +112,7 @@ export default function Home() {
               An integrated industrial ecosystem. <em className="italic text-mid">Built to endure.</em>
             </h1>
             <p className="text-[15px] leading-[1.8] text-mid max-w-[560px] mb-14 font-light">
-              Xnergy is a strategically structured industrial ecosystem designed to build, power, protect, and technologically advance critical infrastructure across multiple sectors of the global economy. Not a holding company. An integrated platform — where each division strengthens the whole.
+              Xnergy is a strategically structured industrial ecosystem designed to build, power, protect, and technologically advance critical infrastructure across multiple sectors of the global economy. Not a holding company. An integrated platform where each division strengthens the whole.
             </p>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
               <button className="text-[10px] font-medium tracking-[0.14em] uppercase text-bg bg-ink border border-ink px-7 py-3 hover:opacity-80 transition-opacity cursor-pointer w-full sm:w-auto text-center">
@@ -152,7 +152,7 @@ export default function Home() {
               </h2>
               <div className="space-y-4 max-w-[580px]">
                 <p className="text-[14px] leading-[1.85] text-mid font-light">
-                  The name Xnergy reflects the central philosophy behind the organisation. The "X" represents the intersection of industries, expertise, and capabilities — where the convergence of multiple sectors creates a multiplier effect far greater than the sum of individual parts.
+                  The name Xnergy reflects the central philosophy behind the organisation. The "X" represents the intersection of industries, expertise, and capabilities, where the convergence of multiple sectors creates a multiplier effect far greater than the sum of individual parts.
                 </p>
                 <div className="my-9 py-6 border-y border-rule">
                   <p className="font-serif text-xl italic text-mid leading-[1.5] tracking-[0.005em]">
@@ -160,7 +160,7 @@ export default function Home() {
                   </p>
                 </div>
                 <p className="text-[14px] leading-[1.85] text-mid font-light">
-                  Within the Xnergy ecosystem, industries that traditionally operate in isolation are intentionally connected to create operational leverage, efficiency, and strategic advantage. Where a single company provides one service, Xnergy provides a coordinated chain of capability — infrastructure, energy, technology, and security working as one.
+                  Within the Xnergy ecosystem, industries that traditionally operate in isolation are intentionally connected to create operational leverage, efficiency, and strategic advantage. Where a single company provides one service, Xnergy provides a coordinated chain of capability: infrastructure, energy, technology, and security working as one.
                 </p>
               </div>
             </FadeIn>
@@ -176,7 +176,7 @@ export default function Home() {
                 Operating across four continents, with a growing federal presence.
               </h2>
               <p className="text-[13px] text-mid leading-[1.8] font-light mb-9">
-                Xnergy's capabilities are deployed where critical infrastructure is being built, secured, and modernised — from North American energy corridors to Southeast Asian logistics networks and beyond.
+                Xnergy's capabilities are deployed where critical infrastructure is being built, secured, and modernised. From North American energy corridors to Southeast Asian logistics networks and beyond.
               </p>
               <div className="flex flex-col gap-3.5">
                 {[
@@ -215,12 +215,12 @@ export default function Home() {
           {[
             {
               name: "Xnergy Infrastructure",
-              desc: "The physical foundation of the ecosystem. Xnergy Infrastructure develops the built environment upon which all other divisions operate — from structural fabrication to large-scale engineering and the sourcing of critical materials.",
+              desc: "The physical foundation of the ecosystem. Xnergy Infrastructure develops the built environment upon which all other divisions operate, from structural fabrication to large-scale engineering and the sourcing of critical materials.",
               tags: ["Structural Steel Fabrication", "Logistics", "Engineering & Construction", "Rare Earth Elements"]
             },
             {
               name: "Xnergy Power",
-              desc: "The energy backbone of the platform. Xnergy Power focuses on next-generation energy generation and storage — developing the systems that power industrial operations, communities, and the broader economy with resilience and efficiency.",
+              desc: "The energy backbone of the platform. Xnergy Power focuses on next-generation energy generation and storage, developing the systems that power industrial operations, communities, and the broader economy with resilience and efficiency.",
               tags: ["Small Modular Reactors", "Enhanced Geothermal", "Advanced Solar Systems", "Long-duration Energy Storage"]
             },
             {
@@ -230,7 +230,7 @@ export default function Home() {
             },
             {
               name: "Xnergy Security",
-              desc: "The protective layer of the platform. Xnergy Security safeguards the operational environment — from critical assets and mobile operations to large-scale infrastructure — ensuring the continuity and integrity of the broader ecosystem.",
+              desc: "The protective layer of the platform. Xnergy Security safeguards the operational environment, from critical assets and mobile operations to large-scale infrastructure, ensuring the continuity and integrity of the broader ecosystem.",
               tags: ["Mobile Asset Protection", "Site Protection", "Advanced Surveillance", "Infrastructure Protection"]
             }
           ].map((div, i) => (
@@ -308,12 +308,12 @@ export default function Home() {
               {
                 num: "I",
                 title: "An integrated platform others cannot easily build",
-                desc: "Rare earth sourcing feeds fabrication. Fabrication supports energy builds. Technology optimises operations. Security protects the whole. One relationship activates multiple divisions — a structural depth that single-sector operators simply do not offer."
+                desc: "Rare earth sourcing feeds fabrication. Fabrication supports energy builds. Technology optimises operations. Security protects the whole. One relationship activates multiple divisions, a structural depth that single-sector operators simply do not offer."
               },
               {
                 num: "II",
                 title: "Aligned with where global spending is headed",
-                desc: "Federal infrastructure mandates, defence modernisation budgets, and energy transition programmes are at historic levels. Xnergy operates at the intersection of each — positioned not where activity has been, but where it is going."
+                desc: "Federal infrastructure mandates, defence modernisation budgets, and energy transition programmes are at historic levels. Xnergy operates at the intersection of each, positioned not where activity has been, but where it is going."
               },
               {
                 num: "III",
