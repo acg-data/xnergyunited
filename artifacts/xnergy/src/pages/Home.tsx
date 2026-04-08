@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Globe } from "@/components/Globe";
 import kevinImg from "@assets/image_1775667405509.png";
-import jerryImg from "@assets/image_1775667437407.png";
+import jerryImg from "@assets/WhatsApp_Image_2026-04-09_at_12.47.38_AM_1775678013783.jpeg";
 import logoImg from "@assets/ChatGPT_Image_Mar_6,_2026,_05_30_58_PM_1775667503070.png";
 
 const divisions = [
