@@ -268,12 +268,12 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 md:gap-16">
             {[
               {
-                name: "Jerry G. Mikolajczyk",
+                name: "Jerry G. Mcksieaxxxx",
                 title: "Chairman of the Board",
                 img: jerryImg,
               },
               {
-                name: "Kevin Grapes",
+                name: "Kevin M. Grapes",
                 title: "President",
                 img: kevinImg,
               }
