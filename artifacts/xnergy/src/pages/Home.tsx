@@ -1,7 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Globe } from "@/components/Globe";
 import kevinImg from "@assets/image_1775667405509.png";
 import jerryImg from "@assets/image_1775667437407.png";
+
+const divisions = [
+  { name: "Infrastructure", brief: "The physical foundation", count: 4 },
+  { name: "Power", brief: "Next-generation energy", count: 4 },
+  { name: "Technology", brief: "Intelligence & communications", count: 4 },
+  { name: "Security", brief: "Asset & infrastructure protection", count: 4 },
+];
 
 function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -56,11 +63,35 @@ export default function Home() {
           <span className="font-serif text-lg font-medium tracking-[0.12em] text-ink uppercase leading-none">Xnergy</span>
           <span className="text-[9px] font-normal tracking-[0.18em] text-muted-ink uppercase leading-none mt-1">United Network</span>
         </a>
-        <div className="hidden md:flex gap-9">
+        <div className="hidden md:flex gap-9 items-center">
           {["Philosophy", "Presence", "Divisions", "Leadership", "Outlook"].map((link) => (
-            <a key={link} href={`#${link.toLowerCase()}`} className="text-[11px] font-normal tracking-[0.1em] text-muted-ink hover:text-ink uppercase transition-colors">
-              {link}
-            </a>
+            link === "Divisions" ? (
+              <div key={link} className="relative group">
+                <a href="#divisions" className="text-[11px] font-normal tracking-[0.1em] text-muted-ink hover:text-ink uppercase transition-colors flex items-center gap-1">
+                  Divisions
+                  <svg width="8" height="5" viewBox="0 0 8 5" fill="none" className="mt-[1px] opacity-50 group-hover:opacity-100 transition-opacity">
+                    <path d="M1 1L4 4L7 1" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </a>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="bg-[#F9F7F4] border border-rule shadow-sm min-w-[280px]">
+                    {divisions.map((div, i) => (
+                      <a key={i} href="#divisions" className="flex items-start justify-between gap-4 px-5 py-3.5 hover:bg-[#F0EDE8] transition-colors border-b border-rule last:border-b-0 no-underline">
+                        <div>
+                          <div className="text-[11px] font-medium tracking-[0.06em] text-ink uppercase">{div.name}</div>
+                          <div className="text-[11px] font-light text-muted-ink mt-0.5">{div.brief}</div>
+                        </div>
+                        <span className="text-[10px] font-normal tracking-[0.08em] text-gold whitespace-nowrap mt-0.5">{div.count} capabilities</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <a key={link} href={`#${link.toLowerCase()}`} className="text-[11px] font-normal tracking-[0.1em] text-muted-ink hover:text-ink uppercase transition-colors">
+                {link}
+              </a>
+            )
           ))}
         </div>
         <button className="text-[10px] font-medium tracking-[0.12em] uppercase text-ink bg-transparent border border-rule px-5 py-2 hover:border-ink transition-colors cursor-pointer">
