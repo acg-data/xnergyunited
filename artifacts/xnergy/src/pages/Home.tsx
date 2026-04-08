@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Globe } from "@/components/Globe";
 import kevinImg from "@assets/image_1775667405509.png";
 import jerryImg from "@assets/image_1775667437407.png";
+import logoImg from "@assets/ChatGPT_Image_Mar_6,_2026,_05_30_58_PM_1775667503070.png";
 
 const divisions = [
   { name: "Infrastructure", brief: "The physical foundation", count: 4 },
@@ -59,9 +60,12 @@ export default function Home() {
       
       {/* NAV */}
       <nav className="h-16 flex items-center justify-between px-6 md:px-14 border-b border-rule sticky top-0 z-50 bg-[#F9F7F4]/90 backdrop-blur-md">
-        <a href="#" className="flex flex-col gap-[1px] no-underline">
-          <span className="font-serif text-lg font-medium tracking-[0.12em] text-ink uppercase leading-none">Xnergy</span>
-          <span className="text-[9px] font-normal tracking-[0.18em] text-muted-ink uppercase leading-none mt-1">United Network</span>
+        <a href="#" className="flex items-center gap-3 no-underline">
+          <img src={logoImg} alt="Xnergy United Network logo" width="36" height="36" className="w-9 h-9 object-contain" />
+          <div className="flex flex-col gap-[1px]">
+            <span className="font-serif text-lg font-medium tracking-[0.12em] text-ink uppercase leading-none">Xnergy</span>
+            <span className="text-[9px] font-normal tracking-[0.18em] text-muted-ink uppercase leading-none mt-1">United Network</span>
+          </div>
         </a>
         <div className="hidden md:flex gap-9 items-center">
           {["Philosophy", "Presence", "Divisions", "Leadership", "Outlook"].map((link) => (
