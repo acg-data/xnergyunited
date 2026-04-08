@@ -269,10 +269,12 @@ export default function Home() {
             {[
               {
                 name: "Kevin Grapes",
+                title: "President",
                 img: kevinImg,
               },
               {
                 name: "Jerry G. Mikolajczyk",
+                title: "Chairman of the Board",
                 img: jerryImg,
               }
             ].map((member, i) => (
@@ -283,6 +285,7 @@ export default function Home() {
                   </div>
                   <div className="pt-2">
                     <h3 className="font-serif text-xl md:text-[22px] text-ink mb-1 leading-[1.2]">{member.name}</h3>
+                    <div className="text-[11px] font-normal tracking-[0.08em] text-muted-ink uppercase">{member.title}</div>
                   </div>
                 </div>
               </FadeIn>
