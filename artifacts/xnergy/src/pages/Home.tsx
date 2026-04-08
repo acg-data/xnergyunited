@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Globe } from "@/components/Globe";
+import kevinImg from "@assets/image_1775667405509.png";
+import jerryImg from "@assets/image_1775667437407.png";
 
 function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -55,7 +57,7 @@ export default function Home() {
           <span className="text-[9px] font-normal tracking-[0.18em] text-muted-ink uppercase leading-none mt-1">United Network</span>
         </a>
         <div className="hidden md:flex gap-9">
-          {["Philosophy", "Presence", "Divisions", "Outlook"].map((link) => (
+          {["Philosophy", "Presence", "Divisions", "Leadership", "Outlook"].map((link) => (
             <a key={link} href={`#${link.toLowerCase()}`} className="text-[11px] font-normal tracking-[0.1em] text-muted-ink hover:text-ink uppercase transition-colors">
               {link}
             </a>
@@ -217,6 +219,44 @@ export default function Home() {
               </FadeIn>
             </div>
           ))}
+        </section>
+
+        {/* LEADERSHIP */}
+        <section id="leadership" className="py-20 md:py-24 border-b border-rule">
+          <div className="grid md:grid-cols-[200px_1fr] gap-8 md:gap-16 mb-14">
+            <FadeIn>
+              <div className="text-[10px] font-normal tracking-[0.18em] text-gold uppercase md:pt-1.5">Leadership</div>
+            </FadeIn>
+            <FadeIn delay={100}>
+              <h2 className="font-serif text-2xl md:text-[30px] font-normal text-ink leading-[1.2] tracking-[-0.005em]">
+                Experienced operators with deep sector knowledge.
+              </h2>
+            </FadeIn>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+            {[
+              {
+                name: "Kevin Grapes",
+                img: kevinImg,
+              },
+              {
+                name: "Jerry G. Mikolajczyk",
+                img: jerryImg,
+              }
+            ].map((member, i) => (
+              <FadeIn key={i} delay={i * 120}>
+                <div className="flex items-start gap-6">
+                  <div className="w-24 h-24 md:w-28 md:h-28 flex-shrink-0 overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+                    <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
+                  </div>
+                  <div className="pt-2">
+                    <h3 className="font-serif text-xl md:text-[22px] text-ink mb-1 leading-[1.2]">{member.name}</h3>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </section>
 
         {/* OUTLOOK */}
