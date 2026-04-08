@@ -268,14 +268,14 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 md:gap-16">
             {[
               {
-                name: "Kevin Grapes",
-                title: "President",
-                img: kevinImg,
-              },
-              {
                 name: "Jerry G. Mikolajczyk",
                 title: "Chairman of the Board",
                 img: jerryImg,
+              },
+              {
+                name: "Kevin Grapes",
+                title: "President",
+                img: kevinImg,
               }
             ].map((member, i) => (
               <FadeIn key={i} delay={i * 120}>
