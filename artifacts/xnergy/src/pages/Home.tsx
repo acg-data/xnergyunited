@@ -395,9 +395,16 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="border-t border-rule py-9 mt-auto">
-        <div className="max-w-[920px] mx-auto px-6 md:px-14 flex items-center justify-between">
-          <div className="font-serif text-[15px] font-medium tracking-[0.14em] text-ink uppercase">Xnergy United Networks</div>
-          <div className="text-[9px] tracking-[0.16em] text-muted-ink uppercase">Not for public distribution</div>
+        <div className="max-w-[920px] mx-auto px-6 md:px-14">
+          <div className="flex flex-col md:flex-row items-start justify-between gap-6">
+            <div>
+              <div className="font-serif text-[15px] font-medium tracking-[0.14em] text-ink uppercase mb-1">Xnergy United Networks</div>
+              <div className="text-[9px] tracking-[0.16em] text-muted-ink uppercase">Not for public distribution</div>
+            </div>
+            <p className="text-[11px] text-muted-ink max-w-[420px] leading-[1.65] md:text-right font-light text-left">
+              This page is intended solely for the use of qualified institutional investors and accredited parties. The information contained herein is confidential and may not be reproduced or distributed without prior written consent.
+            </p>
+          </div>
         </div>
       </footer>
 
