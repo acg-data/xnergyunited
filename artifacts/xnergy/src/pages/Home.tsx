@@ -5,7 +5,7 @@ import logoImg from "@assets/logo_cropped.png";
 
 const divisions = [
   { name: "Infrastructure", brief: "The physical foundation", count: 4 },
-  { name: "Power", brief: "Next-generation energy", count: 4 },
+  { name: "Energy", brief: "Next-generation energy", count: 4 },
   { name: "Technology", brief: "Intelligence & communications", count: 4 },
   { name: "Security", brief: "Asset & infrastructure protection", count: 4 },
 ];
@@ -258,8 +258,8 @@ export default function Home() {
               tags: ["Structural Steel Fabrication", "Logistics", "Engineering & Construction", "Rare Earth Elements"]
             },
             {
-              name: "Xnergy Power",
-              desc: "The energy backbone of the platform. Xnergy Power focuses on next-generation energy generation and storage, developing the systems that power industrial operations, communities, and the broader economy with resilience and efficiency.",
+              name: "Xnergy Energy",
+              desc: "The energy backbone of the platform. Xnergy Energy focuses on next-generation energy generation and storage, developing the systems that power industrial operations, communities, and the broader economy with resilience and efficiency.",
               tags: ["Small Modular Reactors", "Enhanced Geothermal", "Advanced Solar Systems", "Long-duration Energy Storage"]
             },
             {
@@ -360,7 +360,7 @@ export default function Home() {
               {
                 num: "III",
                 title: "Security presence leads to energy market entry",
-                desc: "Securing critical sites opens the door to powering them. Xnergy Power delivers next-generation energy solutions to the same clients and geographies, completing the ecosystem from ground up."
+                desc: "Securing critical sites opens the door to powering them. Xnergy Energy delivers next-generation energy solutions to the same clients and geographies, completing the ecosystem from ground up."
               }
             ].map((cell, i) => (
               <FadeIn key={i} delay={i * 100} className="bg-bg p-8 md:px-8 md:py-10 max-md:border max-md:border-rule">
