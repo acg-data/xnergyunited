@@ -53,57 +53,70 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
   );
 }
 
-function RequestMaterialsModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+function ContactForm({ onSubmitted }: { onSubmitted?: () => void }) {
   const [form, setForm] = useState({ name: "", email: "", organization: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
-
-  if (!open) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+    onSubmitted?.();
   };
+
+  if (submitted) {
+    return (
+      <div className="flex items-center justify-center py-6">
+        <div className="text-center">
+          <h3 className="font-serif text-2xl text-ink mb-3">Thank you.</h3>
+          <p className="text-[13px] text-mid font-light leading-[1.7]">Your request has been received. A member of our team will be in contact with you shortly.</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <label className="block text-[10px] font-normal tracking-[0.1em] text-muted-ink uppercase mb-1.5">Full Name *</label>
+        <input type="text" required value={form.name} onChange={(e) => setForm({...form, name: e.target.value})} className="w-full bg-transparent border border-rule px-3.5 py-2.5 text-[13px] text-ink font-light outline-none focus:border-ink transition-colors" />
+      </div>
+      <div>
+        <label className="block text-[10px] font-normal tracking-[0.1em] text-muted-ink uppercase mb-1.5">Email Address *</label>
+        <input type="email" required value={form.email} onChange={(e) => setForm({...form, email: e.target.value})} className="w-full bg-transparent border border-rule px-3.5 py-2.5 text-[13px] text-ink font-light outline-none focus:border-ink transition-colors" />
+      </div>
+      <div>
+        <label className="block text-[10px] font-normal tracking-[0.1em] text-muted-ink uppercase mb-1.5">Organization</label>
+        <input type="text" value={form.organization} onChange={(e) => setForm({...form, organization: e.target.value})} className="w-full bg-transparent border border-rule px-3.5 py-2.5 text-[13px] text-ink font-light outline-none focus:border-ink transition-colors" />
+      </div>
+      <div>
+        <label className="block text-[10px] font-normal tracking-[0.1em] text-muted-ink uppercase mb-1.5">Message</label>
+        <textarea rows={3} value={form.message} onChange={(e) => setForm({...form, message: e.target.value})} className="w-full bg-transparent border border-rule px-3.5 py-2.5 text-[13px] text-ink font-light outline-none focus:border-ink transition-colors resize-none" />
+      </div>
+      <button type="submit" className="w-full text-[10px] font-medium tracking-[0.14em] uppercase text-bg bg-ink border border-ink px-7 py-3 hover:opacity-80 transition-opacity cursor-pointer mt-2">
+        Submit Request
+      </button>
+    </form>
+  );
+}
+
+function RequestMaterialsModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  if (!open) return null;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center" onClick={onClose}>
       <div className="absolute inset-0 bg-[#141210]/60 backdrop-blur-sm"></div>
       <div className="relative bg-[#F9F7F4] border border-rule w-full max-w-[520px] mx-4 p-8 md:p-10" onClick={(e) => e.stopPropagation()}>
         <button onClick={onClose} className="absolute top-4 right-5 text-muted-ink hover:text-ink transition-colors cursor-pointer bg-transparent border-none text-lg leading-none">&times;</button>
-        {submitted ? (
-          <div className="text-center py-8">
-            <h3 className="font-serif text-2xl text-ink mb-3">Thank you.</h3>
-            <p className="text-[13px] text-mid font-light leading-[1.7]">Your request has been received. A member of our team will be in contact with you shortly.</p>
-          </div>
-        ) : (
-          <>
-            <h3 className="font-serif text-2xl text-ink mb-2">Request Materials</h3>
-            <p className="text-[12px] text-muted-ink font-light mb-7">All inquiries are handled with discretion.</p>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-[10px] font-normal tracking-[0.1em] text-muted-ink uppercase mb-1.5">Full Name *</label>
-                <input type="text" required value={form.name} onChange={(e) => setForm({...form, name: e.target.value})} className="w-full bg-transparent border border-rule px-3.5 py-2.5 text-[13px] text-ink font-light outline-none focus:border-ink transition-colors" />
-              </div>
-              <div>
-                <label className="block text-[10px] font-normal tracking-[0.1em] text-muted-ink uppercase mb-1.5">Email Address *</label>
-                <input type="email" required value={form.email} onChange={(e) => setForm({...form, email: e.target.value})} className="w-full bg-transparent border border-rule px-3.5 py-2.5 text-[13px] text-ink font-light outline-none focus:border-ink transition-colors" />
-              </div>
-              <div>
-                <label className="block text-[10px] font-normal tracking-[0.1em] text-muted-ink uppercase mb-1.5">Organization</label>
-                <input type="text" value={form.organization} onChange={(e) => setForm({...form, organization: e.target.value})} className="w-full bg-transparent border border-rule px-3.5 py-2.5 text-[13px] text-ink font-light outline-none focus:border-ink transition-colors" />
-              </div>
-              <div>
-                <label className="block text-[10px] font-normal tracking-[0.1em] text-muted-ink uppercase mb-1.5">Message</label>
-                <textarea rows={3} value={form.message} onChange={(e) => setForm({...form, message: e.target.value})} className="w-full bg-transparent border border-rule px-3.5 py-2.5 text-[13px] text-ink font-light outline-none focus:border-ink transition-colors resize-none" />
-              </div>
-              <button type="submit" className="w-full text-[10px] font-medium tracking-[0.14em] uppercase text-bg bg-ink border border-ink px-7 py-3 hover:opacity-80 transition-opacity cursor-pointer mt-2">
-                Submit Request
-              </button>
-            </form>
-          </>
-        )}
+        <h3 className="font-serif text-2xl text-ink mb-2">Request Materials</h3>
+        <p className="text-[12px] text-muted-ink font-light mb-7">All inquiries are handled with discretion.</p>
+        <ContactForm onSubmitted={onClose} />
       </div>
     </div>
   );
+}
+
+function CtaForm() {
+  return <ContactForm />;
 }
 
 export default function Home() {
@@ -336,18 +349,18 @@ export default function Home() {
             {[
               {
                 num: "I",
-                title: "An integrated platform others cannot easily build",
-                desc: "Rare earth sourcing feeds fabrication. Fabrication supports energy builds. Technology optimizes operations. Security protects the whole. One relationship activates multiple divisions, a structural depth that single-sector operators simply do not offer."
+                title: "Steel infrastructure leads to construction contracts",
+                desc: "Structural fabrication, rare earth sourcing, and engineering capabilities position Xnergy at the entry point of large-scale development. Every project begins with the physical foundation, and Xnergy builds it."
               },
               {
                 num: "II",
-                title: "Aligned with where global spending is headed",
-                desc: "Federal infrastructure mandates, defense modernization budgets, and energy transition programs are at historic levels. Xnergy operates at the intersection of each, positioned not where activity has been, but where it is going."
+                title: "Construction contracts lead to security deals",
+                desc: "Once infrastructure is in place, it must be protected. Xnergy Security integrates directly into active construction and operational environments, creating a natural expansion from build to protect."
               },
               {
                 num: "III",
-                title: "Physical foundations with a technology edge",
-                desc: "Steel, energy infrastructure, and physical security provide tangible, enduring value. AI, cybersecurity, and communications add operational efficiency and long-term growth potential. The combination is rare."
+                title: "Security presence leads to energy market entry",
+                desc: "Securing critical sites opens the door to powering them. Xnergy Power delivers next-generation energy solutions to the same clients and geographies, completing the ecosystem from ground up."
               }
             ].map((cell, i) => (
               <FadeIn key={i} delay={i * 100} className="bg-bg p-8 md:px-8 md:py-10 max-md:border max-md:border-rule">
@@ -359,41 +372,32 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CTA */}
+        {/* CTA - INFO BOX */}
         <section className="py-20 md:py-24 border-t border-rule">
-          <div className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-center">
-            <FadeIn>
-              <h2 className="font-serif text-2xl md:text-[28px] font-normal text-ink tracking-[-0.005em] mb-3">
-                Inquiries are handled with discretion.
-              </h2>
-              <p className="text-[13px] text-mid leading-[1.75] max-w-[420px] font-light">
-                Xnergy engages selectively with qualified parties. To learn more or arrange a private conversation, please reach out through the appropriate channel.
-              </p>
-            </FadeIn>
-            <FadeIn delay={100} className="flex flex-col gap-2.5 md:items-end">
-              <button onClick={() => setModalOpen(true)} className="text-[10px] font-medium tracking-[0.14em] uppercase text-bg bg-ink border border-ink px-7 py-3 hover:opacity-80 transition-opacity cursor-pointer w-full md:w-auto text-center">
-                Request materials
-              </button>
-              <button onClick={() => setModalOpen(true)} className="text-[10px] font-normal tracking-[0.14em] uppercase text-muted-ink bg-transparent border border-rule px-7 py-3 hover:border-muted-ink hover:text-mid transition-colors cursor-pointer w-full md:w-auto text-center">
-                Arrange a conversation
-              </button>
-            </FadeIn>
-          </div>
+          <FadeIn>
+            <div className="border border-rule p-8 md:p-12">
+              <div className="grid md:grid-cols-[1fr_1fr] gap-10 md:gap-16">
+                <div>
+                  <h2 className="font-serif text-2xl md:text-[28px] font-normal text-ink tracking-[-0.005em] mb-3">
+                    Request Materials
+                  </h2>
+                  <p className="text-[13px] text-mid leading-[1.75] font-light mb-2">
+                    Xnergy engages selectively with qualified parties. Submit your details and a member of our team will be in contact with you.
+                  </p>
+                  <p className="text-[11px] text-muted-ink font-light">All inquiries are handled with discretion.</p>
+                </div>
+                <CtaForm />
+              </div>
+            </div>
+          </FadeIn>
         </section>
       </main>
 
       {/* FOOTER */}
       <footer className="border-t border-rule py-9 mt-auto">
-        <div className="max-w-[920px] mx-auto px-6 md:px-14">
-          <div className="flex flex-col md:flex-row items-start justify-between gap-6">
-            <div>
-              <div className="font-serif text-[15px] font-medium tracking-[0.14em] text-ink uppercase mb-1">Xnergy United Networks</div>
-              <div className="text-[9px] tracking-[0.16em] text-light uppercase">Confidential · Not for public distribution</div>
-            </div>
-            <p className="text-[11px] text-light max-w-[420px] leading-[1.65] md:text-right font-light text-left">
-              This page is intended solely for the use of qualified institutional parties and accredited organizations. The information contained herein is confidential and may not be reproduced or distributed without prior written consent.
-            </p>
-          </div>
+        <div className="max-w-[920px] mx-auto px-6 md:px-14 flex items-center justify-between">
+          <div className="font-serif text-[15px] font-medium tracking-[0.14em] text-ink uppercase">Xnergy United Networks</div>
+          <div className="text-[9px] tracking-[0.16em] text-muted-ink uppercase">Not for public distribution</div>
         </div>
       </footer>
 
