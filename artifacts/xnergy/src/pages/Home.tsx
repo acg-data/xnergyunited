@@ -253,22 +253,22 @@ export default function Home() {
 
           {[
             {
-              name: "Xnergy Infrastructure",
+              name: "Infrastructure",
               desc: "The physical foundation of the ecosystem. Xnergy Infrastructure develops the built environment upon which all other divisions operate, from structural fabrication to large-scale engineering and the sourcing of critical materials.",
               tags: ["Structural Steel Fabrication", "Logistics", "Engineering & Construction", "Rare Earth Elements"]
             },
             {
-              name: "Xnergy Energy",
+              name: "Energy",
               desc: "The energy backbone of the platform. Xnergy Energy focuses on next-generation energy generation and storage, developing the systems that power industrial operations, communities, and the broader economy with resilience and efficiency.",
               tags: ["Small Modular Reactors", "Enhanced Geothermal", "Advanced Solar Systems", "Long-duration Energy Storage"]
             },
             {
-              name: "Xnergy Technology",
+              name: "Technology",
               desc: "The intelligence layer of the ecosystem. Xnergy Technology enhances the capability, efficiency, and communication of industrial systems through artificial intelligence, advanced surveillance, and satellite-grade communications infrastructure.",
               tags: ["AI & Machine Learning", "Cybersecurity Architecture", "Facial Recognition", "Satellite & Terrestrial Communication"]
             },
             {
-              name: "Xnergy Security",
+              name: "Security",
               desc: "The protective layer of the platform. Xnergy Security safeguards the operational environment, from critical assets and mobile operations to large-scale infrastructure, ensuring the continuity and integrity of the broader ecosystem.",
               tags: ["Mobile Asset Protection", "Site Protection", "Advanced Surveillance", "Infrastructure Protection"]
             }
