@@ -308,12 +308,12 @@ export default function Home() {
             {[
               {
                 name: "Jerry G. Mikolajczyk",
-                title: "Chairman of the Board",
+                title: "Chairman, Co-Founder",
                 img: jerryImg,
               },
               {
                 name: "Kevin M. Grapes",
-                title: "President",
+                title: "President, Co-Founder",
                 img: kevinImg,
               }
             ].map((member, i) => (
