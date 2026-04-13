@@ -340,27 +340,32 @@ export default function Home() {
             </FadeIn>
             <FadeIn delay={100}>
               <h2 className="font-serif text-2xl md:text-[30px] font-normal text-ink leading-[1.2] tracking-[-0.005em]">
-                Three dynamics shaping the opportunity ahead.
+                Four dynamics shaping the opportunity ahead.
               </h2>
             </FadeIn>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-[1px] bg-rule border border-rule md:bg-rule md:border-rule bg-transparent border-transparent max-md:gap-6">
+          <div className="grid md:grid-cols-4 gap-[1px] bg-rule border border-rule md:bg-rule md:border-rule bg-transparent border-transparent max-md:gap-6">
             {[
               {
                 num: "I",
-                title: "Steel infrastructure leads to construction contracts",
-                desc: "Structural fabrication, rare earth sourcing, and engineering capabilities position Xnergy at the entry point of large-scale development. Every project begins with the physical foundation, and Xnergy builds it."
+                title: "Energy creates the entry point",
+                desc: "Every major development begins with power. Xnergy Energy delivers next-generation generation and storage solutions that establish presence in new markets and open the door to deeper engagement across the ecosystem."
               },
               {
                 num: "II",
-                title: "Construction contracts lead to security deals",
-                desc: "Once infrastructure is in place, it must be protected. Xnergy Security integrates directly into active construction and operational environments, creating a natural expansion from build to protect."
+                title: "Energy leads to infrastructure contracts",
+                desc: "Once energy systems are in place, the physical environment must be built around them. Xnergy Infrastructure provides structural fabrication, engineering, and critical materials to support large-scale development."
               },
               {
                 num: "III",
-                title: "Security presence leads to energy market entry",
-                desc: "Securing critical sites opens the door to powering them. Xnergy Energy delivers next-generation energy solutions to the same clients and geographies, completing the ecosystem from ground up."
+                title: "Infrastructure leads to security deals",
+                desc: "Active construction and operational environments must be protected. Xnergy Security integrates directly into these sites, creating a natural expansion from build to protect."
+              },
+              {
+                num: "IV",
+                title: "Technology connects it all",
+                desc: "AI, cybersecurity, satellite communications, and advanced surveillance run across every division. Xnergy Technology is the intelligence layer that optimizes operations, strengthens security, and creates long-term efficiency across the entire ecosystem."
               }
             ].map((cell, i) => (
               <FadeIn key={i} delay={i * 100} className="bg-bg p-8 md:px-8 md:py-10 max-md:border max-md:border-rule">
