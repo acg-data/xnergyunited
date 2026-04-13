@@ -349,18 +349,18 @@ export default function Home() {
             {[
               {
                 num: "I",
-                title: "Energy creates the entry point",
-                desc: "Every major development begins with power. Xnergy Energy delivers next-generation generation and storage solutions that establish presence in new markets and open the door to deeper engagement across the ecosystem."
+                title: "Energy demand opens the door",
+                desc: "Every major development begins with power. Xnergy Energy delivers next-generation generation and storage solutions that establish presence in new markets, creating the entry point for the full ecosystem to follow."
               },
               {
                 num: "II",
-                title: "Energy leads to infrastructure contracts",
-                desc: "Once energy systems are in place, the physical environment must be built around them. Xnergy Infrastructure provides structural fabrication, engineering, and critical materials to support large-scale development."
+                title: "Steel infrastructure leads to construction contracts",
+                desc: "Structural fabrication, rare earth sourcing, and engineering capabilities position Xnergy at the entry point of large-scale development. Every project begins with the physical foundation, and Xnergy builds it."
               },
               {
                 num: "III",
-                title: "Infrastructure leads to security deals",
-                desc: "Active construction and operational environments must be protected. Xnergy Security integrates directly into these sites, creating a natural expansion from build to protect."
+                title: "Construction contracts lead to security deals",
+                desc: "Once infrastructure is in place, it must be protected. Xnergy Security integrates directly into active construction and operational environments, creating a natural expansion from build to protect."
               },
               {
                 num: "IV",
