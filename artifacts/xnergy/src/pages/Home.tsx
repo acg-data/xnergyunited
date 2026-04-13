@@ -345,7 +345,7 @@ export default function Home() {
             </FadeIn>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-[1px] bg-rule border border-rule md:bg-rule md:border-rule bg-transparent border-transparent max-md:gap-6">
+          <div className="-mx-6 md:-mx-14 grid md:grid-cols-4 gap-[1px] bg-rule border border-rule md:bg-rule md:border-rule bg-transparent border-transparent max-md:gap-6">
             {[
               {
                 num: "I",
@@ -368,7 +368,7 @@ export default function Home() {
                 desc: "AI, cybersecurity, satellite communications, and advanced surveillance run across every division. Xnergy Technology is the intelligence layer that optimizes operations, strengthens security, and creates long-term efficiency across the entire ecosystem."
               }
             ].map((cell, i) => (
-              <FadeIn key={i} delay={i * 100} className="bg-bg p-8 md:px-8 md:py-10 max-md:border max-md:border-rule">
+              <FadeIn key={i} delay={i * 100} className="bg-bg p-8 md:px-10 md:py-10 max-md:border max-md:border-rule">
                 <span className="block text-[10px] font-normal tracking-[0.15em] text-gold mb-5">{cell.num}</span>
                 <h3 className="font-serif text-lg text-ink mb-3.5 leading-[1.3]">{cell.title}</h3>
                 <p className="text-[13px] text-mid leading-[1.8] font-light">{cell.desc}</p>
