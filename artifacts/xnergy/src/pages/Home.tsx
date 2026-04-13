@@ -345,7 +345,7 @@ export default function Home() {
             </FadeIn>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-[1px] bg-rule border border-rule md:bg-rule md:border-rule bg-transparent border-transparent max-md:gap-6">
+          <div className="grid md:grid-cols-2 gap-[1px] bg-rule border border-rule md:bg-rule md:border-rule bg-transparent border-transparent max-md:gap-6">
             {[
               {
                 num: "I",
