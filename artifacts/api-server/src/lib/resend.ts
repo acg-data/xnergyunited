@@ -1,9 +1,19 @@
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
-export function getResendClient() {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    throw new Error("RESEND_API_KEY environment variable is not set");
+export function getMailTransport() {
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+  const host = process.env.SMTP_HOST || "smtp.gmail.com";
+  const port = parseInt(process.env.SMTP_PORT || "465", 10);
+
+  if (!user || !pass) {
+    throw new Error("SMTP_USER and SMTP_PASS environment variables are required");
   }
-  return new Resend(apiKey);
+
+  return nodemailer.createTransport({
+    host,
+    port,
+    secure: port === 465,
+    auth: { user, pass },
+  });
 }

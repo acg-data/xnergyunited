@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { getResendClient } from "../lib/resend";
+import { getMailTransport } from "../lib/resend";
 import { logger } from "../lib/logger";
 
 const contactRouter = Router();
 
-contactRouter.post("/contact", async (req, res) => {
+contactRouter.post("/", async (req, res) => {
   const { name, email, organization, message } = req.body;
 
   if (!name || !email) {
@@ -12,51 +12,48 @@ contactRouter.post("/contact", async (req, res) => {
   }
 
   try {
-    const client = getResendClient();
+    const transport = getMailTransport();
+    const fromUser = process.env.SMTP_USER!;
 
-    await client.emails.send({
-      from: "onboarding@resend.dev",
+    await transport.sendMail({
+      from: `"Xnergy United Networks" <${fromUser}>`,
       to: "kevin.grapes@xuninc.com",
       replyTo: email,
       subject: `New Inquiry from ${name}${organization ? ` — ${organization}` : ""}`,
       html: `
-        <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color: #141210;">
-          <h2 style="font-size: 22px; font-weight: normal; margin-bottom: 24px; border-bottom: 1px solid #E2DED8; padding-bottom: 16px;">
-            New inquiry via Xnergy United Networks
+        <div style="font-family: Georgia, serif; max-width: 600px; color: #141210;">
+          <h2 style="color: #8B6F3E; border-bottom: 1px solid #e0d6c8; padding-bottom: 12px;">
+            New Inquiry — Xnergy United Networks
           </h2>
-          <table style="width: 100%; border-collapse: collapse;">
+          <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
             <tr>
-              <td style="padding: 10px 0; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #7A7570; width: 140px;">Name</td>
-              <td style="padding: 10px 0; font-size: 14px;">${name}</td>
+              <td style="padding: 8px 0; font-weight: bold; width: 120px;">Name</td>
+              <td style="padding: 8px 0;">${name}</td>
             </tr>
             <tr>
-              <td style="padding: 10px 0; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #7A7570;">Email</td>
-              <td style="padding: 10px 0; font-size: 14px;"><a href="mailto:${email}" style="color: #8B6F3E;">${email}</a></td>
+              <td style="padding: 8px 0; font-weight: bold;">Email</td>
+              <td style="padding: 8px 0;"><a href="mailto:${email}">${email}</a></td>
             </tr>
             ${organization ? `
             <tr>
-              <td style="padding: 10px 0; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #7A7570;">Organization</td>
-              <td style="padding: 10px 0; font-size: 14px;">${organization}</td>
-            </tr>` : ""}
-            ${message ? `
-            <tr>
-              <td style="padding: 10px 0; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #7A7570; vertical-align: top;">Message</td>
-              <td style="padding: 10px 0; font-size: 14px; line-height: 1.7;">${message.replace(/\n/g, "<br>")}</td>
+              <td style="padding: 8px 0; font-weight: bold;">Organization</td>
+              <td style="padding: 8px 0;">${organization}</td>
             </tr>` : ""}
           </table>
-          <p style="margin-top: 32px; font-size: 11px; color: #7A7570; border-top: 1px solid #E2DED8; padding-top: 16px;">
-            Submitted via xnergy.replit.app
-          </p>
+          ${message ? `
+          <div style="background: #F9F7F4; border-left: 3px solid #8B6F3E; padding: 16px; margin-top: 8px;">
+            <p style="margin: 0; white-space: pre-wrap;">${message}</p>
+          </div>` : ""}
         </div>
       `,
     });
 
-    logger.info({ name, email }, "Contact form submission sent");
+    logger.info(`Contact form submitted by ${name} <${email}>`);
     return res.json({ success: true });
   } catch (err) {
-    logger.error({ err }, "Failed to send contact email");
-    return res.status(500).json({ error: "Failed to send email. Please try again." });
+    logger.error("Failed to send contact email:", err);
+    return res.status(500).json({ error: "Failed to send message. Please try again later." });
   }
 });
 
-export default contactRouter;
+export { contactRouter };
