@@ -64,14 +64,21 @@ function ContactForm({ onSubmitted }: { onSubmitted?: () => void }) {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch(`${import.meta.env.BASE_URL}api/contact`.replace(/\/\//g, "/"), {
+      const res = await fetch("https://formsubmit.co/ajax/kevin.grapes@xuninc.com", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          organization: form.organization,
+          message: form.message,
+          _subject: `New Inquiry from ${form.name}${form.organization ? ` — ${form.organization}` : ""}`,
+          _captcha: "false",
+        }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || "Something went wrong.");
+        throw new Error(data.message || "Something went wrong.");
       }
       setSubmitted(true);
       onSubmitted?.();
