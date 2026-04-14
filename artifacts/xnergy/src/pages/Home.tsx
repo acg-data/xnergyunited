@@ -56,11 +56,30 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 function ContactForm({ onSubmitted }: { onSubmitted?: () => void }) {
   const [form, setForm] = useState({ name: "", email: "", organization: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    onSubmitted?.();
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch(`${import.meta.env.BASE_URL}api/contact`.replace(/\/\//g, "/"), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Something went wrong.");
+      }
+      setSubmitted(true);
+      onSubmitted?.();
+    } catch (err: any) {
+      setError(err.message || "Failed to send. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -92,8 +111,9 @@ function ContactForm({ onSubmitted }: { onSubmitted?: () => void }) {
         <label className="block text-[10px] font-normal tracking-[0.1em] text-muted-ink uppercase mb-1.5">Message</label>
         <textarea rows={3} value={form.message} onChange={(e) => setForm({...form, message: e.target.value})} className="w-full bg-transparent border border-rule px-3.5 py-2.5 text-[13px] text-ink font-light outline-none focus:border-ink transition-colors resize-none" />
       </div>
-      <button type="submit" className="w-full text-[10px] font-medium tracking-[0.14em] uppercase text-bg bg-ink border border-ink px-7 py-3 hover:opacity-80 transition-opacity cursor-pointer mt-2">
-        Submit Request
+      {error && <p className="text-[11px] text-red-600 font-light">{error}</p>}
+      <button type="submit" disabled={loading} className="w-full text-[10px] font-medium tracking-[0.14em] uppercase text-bg bg-ink border border-ink px-7 py-3 hover:opacity-80 transition-opacity cursor-pointer mt-2 disabled:opacity-50">
+        {loading ? "Sending..." : "Submit Request"}
       </button>
     </form>
   );
