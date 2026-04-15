@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import kevinImg from "@assets/image_1775667405509.png";
+import kevinImg from "@assets/WhatsApp_Image_2026-04-15_at_7.00.40_PM_1776259992675.jpeg";
 import jerryImg from "@assets/WhatsApp_Image_2026-04-09_at_12.47.38_AM_1775678013783.jpeg";
 import logoImg from "@assets/logo_cropped.png";
 
