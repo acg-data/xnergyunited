@@ -56,4 +56,4 @@ contactRouter.post("/", async (req, res) => {
   }
 });
 
-export { contactRouter };
+export default contactRouter;
