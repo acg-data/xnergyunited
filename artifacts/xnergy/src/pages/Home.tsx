@@ -335,7 +335,7 @@ export default function Home() {
             {[
               {
                 name: "Jerry G. Mikolajczyk",
-                title: "Founder",
+                title: "Chairman, Founder",
                 img: jerryImg,
               },
               {
