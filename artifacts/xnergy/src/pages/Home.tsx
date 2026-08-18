@@ -64,16 +64,14 @@ function ContactForm({ onSubmitted }: { onSubmitted?: () => void }) {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch("https://formsubmit.co/ajax/kevin.grapes@xuninc.com", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: form.name,
           email: form.email,
           organization: form.organization,
           message: form.message,
-          _subject: `New Inquiry from ${form.name}${form.organization ? ` — ${form.organization}` : ""}`,
-          _captcha: "false",
         }),
       });
       if (!res.ok) {
@@ -127,14 +125,41 @@ function ContactForm({ onSubmitted }: { onSubmitted?: () => void }) {
 }
 
 function RequestMaterialsModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const dialogRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const previousFocus = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const focusable = () => Array.from(dialogRef.current?.querySelectorAll<HTMLElement>('button, input, textarea, select, a[href], [tabindex]:not([tabindex="-1"])') ?? []).filter((element) => !element.hasAttribute("disabled"));
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+      if (event.key !== "Tab") return;
+      const elements = focusable();
+      const first = elements[0];
+      const last = elements[elements.length - 1];
+      if (!first || !last) return;
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    requestAnimationFrame(() => focusable()[0]?.focus());
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      previousFocus?.focus();
+    };
+  }, [open, onClose]);
+
   if (!open) return null;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center" onClick={onClose}>
       <div className="absolute inset-0 bg-[#141210]/60 backdrop-blur-sm"></div>
-      <div className="relative bg-[#F9F7F4] border border-rule w-full max-w-[520px] mx-4 p-8 md:p-10" onClick={(e) => e.stopPropagation()}>
-        <button onClick={onClose} className="absolute top-4 right-5 text-muted-ink hover:text-ink transition-colors cursor-pointer bg-transparent border-none text-lg leading-none">&times;</button>
-        <h3 className="font-serif text-2xl text-ink mb-2">Request Materials</h3>
+      <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="materials-dialog-title" className="relative bg-[#F9F7F4] border border-rule w-full max-w-[520px] mx-4 p-8 md:p-10" onClick={(e) => e.stopPropagation()}>
+        <button onClick={onClose} aria-label="Close request materials form" className="absolute top-4 right-5 text-muted-ink hover:text-ink transition-colors cursor-pointer bg-transparent border-none text-lg leading-none">&times;</button>
+        <h3 id="materials-dialog-title" className="font-serif text-2xl text-ink mb-2">Request Materials</h3>
         <p className="text-[12px] text-muted-ink font-light mb-7">All inquiries are handled with discretion.</p>
         <ContactForm onSubmitted={onClose} />
       </div>
@@ -174,7 +199,7 @@ export default function Home() {
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                   <div className="bg-[#F9F7F4] border border-rule shadow-sm min-w-[280px]">
                     {divisions.map((div, i) => (
-                      <a key={i} href="#divisions" className="flex items-start justify-between gap-4 px-5 py-3.5 hover:bg-[#F0EDE8] transition-colors border-b border-rule last:border-b-0 no-underline">
+                      <a key={i} href={`/${div.name.toLowerCase()}/`} className="flex items-start justify-between gap-4 px-5 py-3.5 hover:bg-[#F0EDE8] transition-colors border-b border-rule last:border-b-0 no-underline">
                         <div>
                           <div className="text-[11px] font-medium tracking-[0.06em] text-ink uppercase">{div.name}</div>
                           <div className="text-[11px] font-light text-muted-ink mt-0.5">{div.brief}</div>
@@ -313,6 +338,9 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
+                <a href={`/${div.name.toLowerCase()}/`} className="inline-flex items-center mt-6 text-[10px] font-medium tracking-[0.12em] uppercase text-ink border-b border-ink pb-1 no-underline">
+                  Explore Xnergy {div.name} →
+                </a>
               </FadeIn>
             </div>
           ))}
