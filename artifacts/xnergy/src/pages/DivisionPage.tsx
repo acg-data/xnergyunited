@@ -107,7 +107,7 @@ export const divisions: Record<DivisionSlug, Division> = {
     role: "Security is the protective layer of the Xnergy ecosystem. It connects engineered field systems, communications, monitoring, response, and analytics so protection can operate as part of the infrastructure—not as an isolated camera network.",
     hero: securitySite,
     heroAlt: "Concept visualization of an Xnergy Security mobile surveillance unit monitoring a construction site",
-    heroCaption: "Concept visualization · Interface values shown are illustrative",
+    heroCaption: "",
     capabilities: [
       { name: "Mobile Surveillance Units", description: "Rapidly deployable, autonomous protection for temporary, remote, and changing sites." },
       { name: "Fixed AI Camera Systems", description: "Persistent coverage with intelligent detection across established facilities." },
@@ -261,7 +261,7 @@ export default function DivisionPage({ slug }: { slug: DivisionSlug }) {
             <p className="text-[15px] leading-[1.8] text-mid max-w-[610px] mb-12 font-light">{division.overview}</p>
             <div className="flex flex-col sm:flex-row gap-5"><button onClick={() => setModalOpen(true)} className="text-[10px] font-medium tracking-[0.14em] uppercase text-bg bg-ink border border-ink px-7 py-3 hover:opacity-80">Discuss a project</button><a href="#capabilities" className="text-[10px] tracking-[0.14em] uppercase text-muted-ink border border-rule px-7 py-3 hover:border-muted-ink text-center">Explore capabilities</a></div>
           </FadeIn>
-          <FadeIn><figure className="border border-rule bg-[#EEEAE4]"><img src={division.hero} alt={division.heroAlt} className="w-full max-h-[640px] object-cover object-center" /><figcaption className="px-4 py-3 text-[9px] tracking-[0.08em] uppercase text-muted-ink border-t border-rule">{division.heroCaption}</figcaption></figure></FadeIn>
+          <FadeIn><figure className="border border-rule bg-[#EEEAE4]"><img src={division.hero} alt={division.heroAlt} className="w-full max-h-[640px] object-cover object-center" />{division.heroCaption && <figcaption className="px-4 py-3 text-[9px] tracking-[0.08em] uppercase text-muted-ink border-t border-rule">{division.heroCaption}</figcaption>}</figure></FadeIn>
         </section>
 
         <section className="grid grid-cols-2 md:grid-cols-4 border-b border-rule">
